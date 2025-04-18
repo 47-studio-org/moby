@@ -1,5 +1,5 @@
 // TODO(thaJeztah): remove once we are a module; the go:build directive prevents go from downgrading language version to go1.16:
-//go:build go1.22
+//go:build go1.23
 
 package daemon // import "github.com/docker/docker/daemon"
 
@@ -228,7 +228,7 @@ func (daemon *Daemon) create(ctx context.Context, daemonCfg *config.Config, opts
 	ctr.ImageManifest = imgManifest
 
 	// Set RWLayer for container after mount labels have been set
-	rwLayer, err := daemon.imageService.CreateLayer(ctr, setupInitLayer(daemon.idMapping))
+	rwLayer, err := daemon.imageService.CreateLayer(ctr, setupInitLayer(daemon.idMapping.RootPair()))
 	if err != nil {
 		return nil, errdefs.System(err)
 	}

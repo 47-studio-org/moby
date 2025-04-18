@@ -1,5 +1,5 @@
 // FIXME(thaJeztah): remove once we are a module; the go:build directive prevents go from downgrading language version to go1.16:
-//go:build go1.22 && (linux || freebsd)
+//go:build go1.23 && (linux || freebsd)
 
 package daemon // import "github.com/docker/docker/daemon"
 
@@ -41,7 +41,6 @@ import (
 	"github.com/docker/docker/libnetwork/options"
 	lntypes "github.com/docker/docker/libnetwork/types"
 	"github.com/docker/docker/opts"
-	"github.com/docker/docker/pkg/idtools"
 	"github.com/docker/docker/pkg/sysinfo"
 	"github.com/docker/docker/runconfig"
 	volumemounts "github.com/docker/docker/volume/mounts"
@@ -1256,10 +1255,9 @@ func removeDefaultBridgeInterface() {
 	}
 }
 
-func setupInitLayer(idMapping user.IdentityMapping) func(string) error {
+func setupInitLayer(uid int, gid int) func(string) error {
 	return func(initPath string) error {
-		uid, gid := idMapping.RootPair()
-		return initlayer.Setup(initPath, idtools.Identity{UID: uid, GID: gid})
+		return initlayer.Setup(initPath, uid, gid)
 	}
 }
 

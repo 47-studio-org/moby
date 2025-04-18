@@ -326,8 +326,8 @@ github.com/containerd/containerd/api/types/runc/options
 github.com/containerd/containerd/api/types/runtimeoptions/v1
 github.com/containerd/containerd/api/types/task
 github.com/containerd/containerd/api/types/transfer
-# github.com/containerd/containerd/v2 v2.0.4
-## explicit; go 1.22.0
+# github.com/containerd/containerd/v2 v2.0.5
+## explicit; go 1.23.0
 github.com/containerd/containerd/v2/client
 github.com/containerd/containerd/v2/cmd/containerd/server/config
 github.com/containerd/containerd/v2/contrib/nvidia
@@ -925,12 +925,14 @@ github.com/moby/buildkit/worker/label
 # github.com/moby/docker-image-spec v1.3.1
 ## explicit; go 1.18
 github.com/moby/docker-image-spec/specs-go/v1
-# github.com/moby/go-archive v0.0.0-20250404171912-21f3f3385ab7
+# github.com/moby/go-archive v0.1.0
 ## explicit; go 1.23.0
 github.com/moby/go-archive
 github.com/moby/go-archive/chrootarchive
+github.com/moby/go-archive/compression
 github.com/moby/go-archive/internal/mounttree
 github.com/moby/go-archive/internal/unshare
+github.com/moby/go-archive/tarheader
 # github.com/moby/ipvs v1.1.0
 ## explicit; go 1.17
 github.com/moby/ipvs
@@ -1440,7 +1442,7 @@ golang.org/x/net/ipv4
 golang.org/x/net/ipv6
 golang.org/x/net/trace
 golang.org/x/net/websocket
-# golang.org/x/oauth2 v0.27.0
+# golang.org/x/oauth2 v0.29.0
 ## explicit; go 1.23.0
 golang.org/x/oauth2
 golang.org/x/oauth2/authhandler
